@@ -11,3 +11,61 @@ namespace :db do
     end
   end
 end
+
+
+require 'csv'
+namespace :db do
+  namespace :populate do
+    desc 'Populate database with example data'
+    task all: [:games]
+
+    desc 'Populate database with games'
+    task games: :environment do
+      Game.transaction do
+        CSV.foreach(Rails.root + 'data/games.csv',
+                    headers: true) do |row|
+                      game = row.to_hash
+                      Game.create! game unless Game.exists? game
+                    end
+      end
+    end
+  end
+end
+
+require 'csv'
+namespace :db do
+  namespace :populate do
+    desc 'Populate database with example data'
+    task all: [:no_spoilers_posts]
+
+    desc 'Populate database with no spoilers posts'
+    task no_spoilers_posts: :environment do
+      NoSpoilersPost.transaction do
+        CSV.foreach(Rails.root + 'data/no-spoilers.csv',
+                    headers: true) do |row|
+                      no_spoilers_post = row.to_hash
+                      NoSpoilersPost.create! no_spoilers_post unless NoSpoilersPost.exists? no_spoilers_post
+                    end
+      end
+    end
+  end
+end
+
+require 'csv'
+namespace :db do
+  namespace :populate do
+    desc 'Populate database with example data'
+    task all: [:spoilery_posts]
+
+    desc 'Populate database with games'
+    task spoilery_posts: :environment do
+      SpoileryPost.transaction do
+        CSV.foreach(Rails.root + 'data/analysis-with-spoilers.csv',
+                    headers: true) do |row|
+                      spoilery_post = row.to_hash
+                      SpoileryPost.create! spoilery_post unless SpoileryPost.exists? spoilery_post
+                    end
+      end
+    end
+  end
+end
