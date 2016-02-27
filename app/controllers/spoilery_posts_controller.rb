@@ -54,6 +54,7 @@ class SpoileryPostsController < ApplicationController
     end
 
     def spoilery_post_params
-      params[:spoilery_post]
+      # params[:spoilery_post]
+      params.require(:spoilery_post).permit(:title, :content)
     end
 end

@@ -54,6 +54,7 @@ class NoSpoilersPostsController < ApplicationController
     end
 
     def no_spoilers_post_params
-      params[:no_spoilers_post]
+      # params[:no_spoilers_post]
+      params.require(:no_spoilers_post).permit(:title, :content)
     end
 end

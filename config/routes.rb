@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users
   resources :games
   resources :spoilery_posts
-  resources :no_spoilers_posts 
+  resources :no_spoilers_posts
 end
 
 # resources :games, only: [:index, :show]
