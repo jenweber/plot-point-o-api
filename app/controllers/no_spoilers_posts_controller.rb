@@ -1,4 +1,4 @@
-class NoSpoilersPostsController < ApplicationController
+class NoSpoilersPostsController < OpenReadController
   before_action :set_no_spoilers_post, only: [:show, :update, :destroy]
 
   # GET /no_spoilers_posts

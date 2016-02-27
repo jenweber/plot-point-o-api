@@ -1,4 +1,4 @@
-class SpoileryPostsController < ApplicationController
+class SpoileryPostsController < OpenReadController
   before_action :set_spoilery_post, only: [:show, :update, :destroy]
 
   # GET /spoilery_posts
