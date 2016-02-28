@@ -55,6 +55,6 @@ class SpoileryPostsController < OpenReadController
 
     def spoilery_post_params
       # params[:spoilery_post]
-      params.require(:spoilery_post).permit(:title, :content)
+      params.require(:spoilery_post).permit(:title, :content, :game_id)
     end
 end

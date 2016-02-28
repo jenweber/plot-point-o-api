@@ -54,7 +54,7 @@ class GamesController < OpenReadController
     end
 
     def game_params
-      # params[:game]
+      # params[:game] better to use below to see more info
       params.require(:game).permit(:name, :developer, :platforms, :rating)
     end
 end

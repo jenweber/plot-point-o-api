@@ -55,6 +55,6 @@ class NoSpoilersPostsController < OpenReadController
 
     def no_spoilers_post_params
       # params[:no_spoilers_post]
-      params.require(:no_spoilers_post).permit(:title, :content)
+      params.require(:no_spoilers_post).permit(:title, :content, :game_id)
     end
 end
