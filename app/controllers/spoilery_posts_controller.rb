@@ -19,6 +19,7 @@ class SpoileryPostsController < OpenReadController
   # POST /spoilery_posts.json
   def create
     @spoilery_post = SpoileryPost.new(spoilery_post_params)
+# current_user.spoilery_posts.build instead of above SpoileryPost. add user has many
 
     if @spoilery_post.save
       render json: @spoilery_post, status: :created, location: @spoilery_post
@@ -31,6 +32,7 @@ class SpoileryPostsController < OpenReadController
   # PATCH/PUT /spoilery_posts/1.json
   def update
     @spoilery_post = SpoileryPost.find(params[:id])
+    # current_user.spoilery_posts.find instead of above SpoileryPost. add user has many
 
     if @spoilery_post.update(spoilery_post_params)
       head :no_content
