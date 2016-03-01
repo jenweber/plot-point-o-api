@@ -14,8 +14,8 @@ curl --include --request POST http://localhost:3000/sign-up \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
-      "email": "admin@plotpointo.com",
-      "password": "admin",
-      "password_confirmation": "admin"
+      "email": "admin2@plotpointo.com",
+      "password": "admin2",
+      "password_confirmation": "admin2"
     }
   }'
