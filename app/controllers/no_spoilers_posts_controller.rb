@@ -18,7 +18,7 @@ class NoSpoilersPostsController < OpenReadController
   # POST /no_spoilers_posts
   # POST /no_spoilers_posts.json
   def create
-    @no_spoilers_post = NoSpoilersPost.new(no_spoilers_post_params)
+    @no_spoilers_post = current_user.no_spoilers_posts.build(no_spoilers_post_params)
 
     if @no_spoilers_post.save
       render json: @no_spoilers_post, status: :created, location: @no_spoilers_post
@@ -30,7 +30,7 @@ class NoSpoilersPostsController < OpenReadController
   # PATCH/PUT /no_spoilers_posts/1
   # PATCH/PUT /no_spoilers_posts/1.json
   def update
-    @no_spoilers_post = NoSpoilersPost.find(params[:id])
+    @no_spoilers_post = current_user.no_spoilers_posts.find(params[:id])
 
     if @no_spoilers_post.update(no_spoilers_post_params)
       head :no_content
@@ -55,6 +55,6 @@ class NoSpoilersPostsController < OpenReadController
 
     def no_spoilers_post_params
       # params[:no_spoilers_post]
-      params.require(:no_spoilers_post).permit(:title, :content, :game_id)
+      params.require(:no_spoilers_post).permit(:title, :content, :game_id, :user_id)
     end
 end

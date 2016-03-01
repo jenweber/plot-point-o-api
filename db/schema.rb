@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225222859) do
+ActiveRecord::Schema.define(version: 20160225222610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,21 +29,25 @@ ActiveRecord::Schema.define(version: 20160225222859) do
     t.string   "title"
     t.string   "content"
     t.integer  "game_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "no_spoilers_posts", ["game_id"], name: "index_no_spoilers_posts_on_game_id", using: :btree
+  add_index "no_spoilers_posts", ["user_id"], name: "index_no_spoilers_posts_on_user_id", using: :btree
 
   create_table "spoilery_posts", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
     t.integer  "game_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "spoilery_posts", ["game_id"], name: "index_spoilery_posts_on_game_id", using: :btree
+  add_index "spoilery_posts", ["user_id"], name: "index_spoilery_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -57,5 +61,7 @@ ActiveRecord::Schema.define(version: 20160225222859) do
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
   add_foreign_key "no_spoilers_posts", "games"
+  add_foreign_key "no_spoilers_posts", "users"
   add_foreign_key "spoilery_posts", "games"
+  add_foreign_key "spoilery_posts", "users"
 end
