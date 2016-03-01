@@ -10,7 +10,7 @@
 #     }
 #   }'
 
-curl --include --request POST http://localhost:3000/sign-up \
+curl --include --request POST http://plot-point-o-api.herokuapp.com/sign-up \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
