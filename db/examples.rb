@@ -1,4 +1,4 @@
-admin = User.create([{ email: 'admin2@plotpointo.com' }, { password: 'admin2' }, { password_confirmation: 'admin2' }])
+admin = User.create([{ email:'admin3@plotpointo.com' }, { password:'admin3' }, { password_confirmation:'admin3' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # This file should contain all the record creation needed to experiment with
